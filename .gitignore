@@ -1,0 +1,16 @@
+# 忽略的文件
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.local
+
+# 备份文件
+*.tar.gz
+skills-backup/
+
+# 临时文件
+*.tmp
+*.temp

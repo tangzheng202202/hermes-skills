@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "global_skills_dir": "~/.hermes/skills",
+  "categories": {
+    "01-coding-dev": {
+      "name": "Coding & Development",
+      "description": "代码开发相关 skills",
+      "skills": ["github", "devops", "software-development", "code-review", "github-python-install"]
+    },
+    "02-ai-agents": {
+      "name": "AI Agents & Automation", 
+      "description": "AI Agent 和自动化工作流",
+      "skills": ["autonomous-ai-agents", "dogfood", "automation"]
+    },
+    "03-mlops": {
+      "name": "MLOps & AI",
+      "description": "机器学习和 AI 部署",
+      "skills": ["mlops", "training", "inference-sh", "data-science"]
+    },
+    "04-content": {
+      "name": "Content & Media",
+      "description": "内容创作和媒体处理",
+      "skills": ["creative", "media", "gifs", "youtube-content"]
+    },
+    "05-research": {
+      "name": "Research & Info",
+      "description": "研究和信息获取",
+      "skills": ["research", "feeds", "note-taking", "knowledge-radar"]
+    },
+    "06-productivity": {
+      "name": "Productivity",
+      "description": "效率工具",
+      "skills": ["productivity", "email", "notion", "google-workspace"]
+    },
+    "07-smart-home": {
+      "name": "Smart Home",
+      "description": "智能家居",
+      "skills": ["smart-home", "openhue", "diy-smart-home-ai-companion"]
+    },
+    "08-social": {
+      "name": "Social & Comm",
+      "description": "社交媒体",
+      "skills": ["xitter", "social-media"]
+    },
+    "09-tools": {
+      "name": "Tools & Utilities",
+      "description": "工具和实用技能",
+      "skills": ["mcp", "diagramming", "leisure"]
+    },
+    "10-gaming": {
+      "name": "Gaming",
+      "description": "游戏相关",
+      "skills": ["gaming", "minecraft-modpack-server", "pokemon-player"]
+    },
+    "11-security": {
+      "name": "Security",
+      "description": "安全相关",
+      "skills": ["red-teaming", "godmode"]
+    },
+    "99-integrations": {
+      "name": "Integrations",
+      "description": "第三方集成",
+      "skills": ["openclaw-imports", "apple"]
+    }
+  },
+  "sync": {
+    "github_repo": "tangzheng202202/hermes-skills",
+    "auto_sync": false,
+    "sync_interval_hours": 24
+  },
+  "aliases": {
+    "skill": "~/.hermes/skills",
+    "sm": "~/.hermes/skills/.skill-manager/skill-manager.py"
+  }
+}

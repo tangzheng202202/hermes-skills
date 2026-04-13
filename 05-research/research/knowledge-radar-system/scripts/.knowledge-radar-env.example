@@ -1,0 +1,95 @@
+# Knowledge Radar Environment Variables
+# Copy this file to ~/.knowledge-radar-env and fill in your values
+# Source this file: source ~/.knowledge-radar-env
+
+# ============================================
+# NOTION API Configuration
+# ============================================
+
+# Your Notion integration token (required)
+# Get it from: https://www.notion.so/my-integrations
+export NOTION_TOKEN="ntn_your_integration_token_here"
+
+# ============================================
+# Database Configuration - Type-Based Archiving
+# ============================================
+# 
+# For organized archiving, create separate databases for each content type
+# and set their IDs here. If a source-specific DB is not set, items will
+# fall back to NOTION_DATABASE_ID (legacy) or be skipped.
+#
+# How to get database ID:
+# 1. In Notion, open your database (full page view)
+# 2. Copy the URL: https://www.notion.so/xxxxxxxxx?v=...
+# 3. The database ID is the part after the last / and before ?v=
+# 4. Example: https://www.notion.so/33c6a09f46ce8054ac0cd11974e212bd?v=...
+#    Database ID: 33c6a09f46ce8054ac0cd11974e212bd
+
+# Tech/AI Database - for: hackernews, github, huggingface
+export NOTION_DB_TECH_AI=""
+
+# Finance Database - for: wallstreetcn, 36kr  
+export NOTION_DB_FINANCE=""
+
+# Academic Database - for: arxiv, huggingface papers
+export NOTION_DB_ACADEMIC=""
+
+# Social Database - for: weibo, v2ex, x_twitter, reddit
+export NOTION_DB_SOCIAL=""
+
+# Industry Database - for: rss, producthunt, ai_newsletters
+export NOTION_DB_INDUSTRY=""
+
+# Legacy fallback database (used when source-specific DB is not set)
+export NOTION_DATABASE_ID=""
+
+# ============================================
+# Telegram Configuration (for notifications)
+# ============================================
+
+# Your Telegram bot token from @BotFather
+export TELEGRAM_BOT_TOKEN=""
+
+# Your Telegram chat ID (send a message to @userinfobot to get it)
+export TELEGRAM_CHAT_ID=""
+
+# ============================================
+# X/Twitter API Configuration (optional)
+# ============================================
+
+# X API credentials - only needed if using X as a source
+# Get them from: https://developer.x.com/en/portal/projects-and-apps
+export X_API_KEY=""
+export X_API_SECRET=""
+export X_ACCESS_TOKEN=""
+export X_ACCESS_TOKEN_SECRET=""
+export X_BEARER_TOKEN=""
+
+# ============================================
+# Example: Multi-Database Setup
+# ============================================
+# 
+# Recommended setup for organized archiving:
+#
+# 1. In Notion, create a parent page called "📡 知识雷达"
+# 2. Under it, create 5 databases with these fields:
+#    - 名称 (Title)
+#    - 来源 (Select)
+#    - 分类 (Multi-select)
+#    - 链接 (URL)
+#    - 热度 (Number)
+#    - 摘要 (Rich text)
+#    - 状态 (Select: 🆕 新抓取 / ✅ 已阅读 / 📦 已归档)
+#    - 创建时间 (Date)
+#
+# 3. Name your databases:
+#    - 🤖 Tech/AI 资讯
+#    - 💰 财经市场
+#    - 📚 学术研究
+#    - 💬 社交媒体
+#    - 📊 行业动态
+#
+# 4. Share each database with your integration:
+#    - Open database → ... → Add connections → Select your integration
+#
+# 5. Copy each database ID to the corresponding variable above

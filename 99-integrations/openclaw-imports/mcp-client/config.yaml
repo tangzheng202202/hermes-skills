@@ -1,0 +1,78 @@
+servers:
+  # 1. 文件系统 - 本地文件操作
+  filesystem:
+    type: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/Users/mac/.openclaw/workspace"]
+  
+  # 2. GitHub - 代码仓库管理 (需 TOKEN)
+  # github:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-github"]
+  #   env:
+  #     GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_xxx"
+  
+  # 3. PostgreSQL - 数据库操作 (需配置)
+  # postgres:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-postgres"]
+  #   env:
+  #     POSTGRES_URL: "postgresql://user:pass@localhost/db"
+  
+  # 4. Slack - 消息发送 (需 TOKEN)
+  # slack:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-slack"]
+  #   env:
+  #     SLACK_BOT_TOKEN: "xoxb-xxx"
+  #     SLACK_TEAM_ID: "Txxx"
+  
+  # 5. Brave Search - 网页搜索 (需 API Key)
+  # brave-search:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-brave-search"]
+  #   env:
+  #     BRAVE_API_KEY: "BSxxx"
+  
+  # 6. Puppeteer - 浏览器自动化
+  puppeteer:
+    type: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-puppeteer"]
+  
+  # 7. Google Maps - 地图服务 (需 API Key)
+  # google-maps:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-google-maps"]
+  #   env:
+  #     GOOGLE_MAPS_API_KEY: "xxx"
+  
+  # 8. Memory - 知识图谱/记忆存储
+  # memory:
+  #   type: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-memory"]
+  
+  # 9. Fetch - 网页内容获取
+  # fetch:
+  #   type: stdio
+  #   command: uvx
+  #   args: ["mcp-server-fetch"]
+  
+  # 10. SQLite - 本地数据库
+  sqlite:
+    type: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-sqlite", "/Users/mac/.openclaw/mcp-data.db"]
+  
+  # 示例：HTTP 服务器
+  # remote:
+  #   type: http
+  #   url: https://api.example.com/mcp
+  #   headers:
+  #     Authorization: Bearer YOUR_TOKEN
