@@ -1,0 +1,97 @@
+#!/bin/bash
+# Second Brain - 统一入口
+# 使用: second-brain [ingest|digest|output] [options]
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# 默认配置
+export SECOND_BRAIN_HOME="${SECOND_BRAIN_HOME:-$HOME/second-brain}"
+
+# 帮助信息
+show_help() {
+    cat << EOF
+🧠 Second Brain - AI 第二大脑系统
+
+使用: second-brain <命令> [选项]
+
+命令:
+  ingest <URL>     摄取内容到知识库
+  digest           消化队列中的内容
+  output           输出成果
+
+摄取选项:
+  -t, --type       指定类型 (auto/wechat/webpage/video/pdf)
+  --tags           添加标签 (逗号分隔)
+
+消化选项:
+  --all            处理所有待处理内容
+  --recent DAYS    处理最近N天的内容
+  --stats          显示统计信息
+
+输出选项:
+  --cards          生成知识卡片
+  --format FORMAT  输出格式 (markdown/html)
+  --article        生成主题文章
+  --topic TOPIC    指定文章主题
+  --tags TAGS      指定标签过滤
+  --report TYPE    生成报告 (weekly/monthly)
+
+示例:
+  second-brain ingest https://mp.weixin.qq.com/s/xxxxx
+  second-brain digest --recent 7
+  second-brain output --report weekly
+
+环境变量:
+  SECOND_BRAIN_HOME    知识库位置 (默认: ~/second-brain)
+
+EOF
+}
+
+# 检查命令
+check_command() {
+    if [ -z "$1" ]; then
+        show_help
+        exit 1
+    fi
+}
+
+# 主逻辑
+case "${1:-}" in
+    ingest)
+        shift
+        python3 "$SCRIPT_DIR/ingest.py" "$@"
+        ;;
+    
+    digest)
+        shift
+        python3 "$SCRIPT_DIR/digest.py" "$@"
+        ;;
+    
+    output)
+        shift
+        python3 "$SCRIPT_DIR/output.py" "$@"
+        ;;
+    
+    workflow|all)
+        echo "🚀 运行完整工作流..."
+        echo ""
+        echo "1. 消化待处理内容..."
+        python3 "$SCRIPT_DIR/digest.py" --all
+        echo ""
+        echo "2. 生成周报..."
+        python3 "$SCRIPT_DIR/output.py" --report weekly
+        echo ""
+        echo "✅ 工作流完成!"
+        ;;
+    
+    help|--help|-h)
+        show_help
+        ;;
+    
+    *)
+        echo "未知命令: ${1:-}"
+        echo ""
+        show_help
+        exit 1
+        ;;
+esac
