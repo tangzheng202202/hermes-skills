@@ -1,0 +1,16 @@
+{
+  "evaluation": {
+    "score": 90,
+    "scores": {
+      "frontmatter": 8,
+      "workflow": 15,
+      "exception": 10,
+      "confirmation": 7,
+      "specificity": 15,
+      "paths": 5,
+      "architecture": 15,
+      "performance": 15
+    },
+    "evaluated_at": "2026-04-14T12:30:14.531330"
+  }
+}

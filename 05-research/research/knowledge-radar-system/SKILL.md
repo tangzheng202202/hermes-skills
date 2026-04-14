@@ -229,10 +229,32 @@ def run_category(category):
 - **X API Free tier is 500 reads/month** - implement quota tracking file to avoid hitting limit mid-month
 - **X API OAuth 1.0a** requires all 5 credentials (consumer_key, consumer_secret, access_token, access_token_secret, bearer_token)
 - **X API query must be URL encoded** - use `urllib.parse.quote()` to avoid "control characters" error
+- **X API returns HTTP 402 (Payment Required)** when quota exceeded or if bearer token is missing/invalid
 - **Heat threshold may need tuning per source** (HN scores vs X likes are different scales)
 - **Notion API field names** - if your database uses Chinese field names (名称, 来源, 分类), map them properly
 - **Notion multi_select vs select** - "分类" is often multi_select, not select - check your database structure
 - **Notion API has rate limits** (~3 req/sec) - add delays for bulk imports
+- **Notion API token can expire** - "API token is invalid" error requires generating a new token at https://www.notion.so/my-integrations
 - **Cron environment** may not have same PATH or env vars as interactive shell - use full paths and load from file
 - **GitHub API has 60 req/hour limit** for unauthenticated requests - fine for cron every 12 hours
+- **HackerNews SSL errors** - can occur due to protocol violations; GitHub API can serve as backup for tech content
+- **Telegram API timeouts** - may fail behind certain networks; local storage ensures data is not lost
 - **Discovering Notion database structure** - If you have existing pages, search for them and inspect `properties` to find correct field names
+
+## Troubleshooting Common Failures
+
+### "Notion sync error: API token is invalid"
+- Notion integration tokens expire periodically
+- Solution: Go to https://www.notion.so/my-integrations → find your integration → copy new token → update `~/.knowledge-radar-env`
+
+### "X fetch error: HTTP Error 402: Payment Required"
+- Free tier quota (500/month) exhausted or bearer token missing
+- Solution: Check quota file at `~/knowledge/x_api_quota.json` or verify bearer token in `~/.config/x-cli/config.yaml`
+
+### "HN fetch error: <urlopen error EOF occurred in violation of protocol>"
+- SSL/TLS handshake failure with HackerNews
+- Solution: GitHub trending API serves as fallback; check network/proxy settings if both fail
+
+### Telegram notification timeout
+- `api.telegram.org` connection may timeout on some networks
+- Solution: Data is safely stored locally; notifications are best-effort only

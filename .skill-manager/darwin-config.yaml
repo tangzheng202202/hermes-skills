@@ -1,0 +1,80 @@
+# 达尔文评估配置
+
+# 评估阈值
+thresholds:
+  excellent: 80  # 优秀
+  acceptable: 60  # 可接受
+  poor: 40       # 需改进
+
+# 进化配置
+evolution:
+  max_iterations: 3  # 最大迭代次数
+  backup_before: true  # 进化前备份
+  human_confirm: true  # 是否需要人类确认
+
+# AI评估配置
+ai_evaluation:
+  enabled: false  # 是否启用AI深度评估
+  model: "anthropic/claude-3.5-sonnet"  # 评估模型
+  test_prompts_count: 3  # 每个skill测试用例数量
+
+# 8维度评分标准
+dimensions:
+  frontmatter:
+    name: "Frontmatter规范"
+    weight: 8
+    criteria:
+      - "name字段存在"
+      - "description字段存在"
+      - "version字段存在"
+      - "author字段存在"
+  
+  workflow:
+    name: "工作流清晰度"
+    weight: 15
+    criteria:
+      - "步骤分明确"
+      - "有数字编号"
+      - "输入输出清晰"
+  
+  exception:
+    name: "异常处理"
+    weight: 10
+    criteria:
+      - "错误处理逻辑"
+      - "边界条件检查"
+  
+  confirmation:
+    name: "用户确认点"
+    weight: 7
+    criteria:
+      - "危险操作前确认"
+      - "不可逆操作提示"
+  
+  specificity:
+    name: "指令具体性"
+    weight: 15
+    criteria:
+      - "命令可直接复制执行"
+      - "参数有示例"
+  
+  paths:
+    name: "路径有效性"
+    weight: 5
+    criteria:
+      - "引用文件存在"
+      - "路径正确"
+  
+  architecture:
+    name: "架构合理性"
+    weight: 15
+    criteria:
+      - "模块划分合理"
+      - "复用性高"
+  
+  performance:
+    name: "实测表现"
+    weight: 25
+    criteria:
+      - "测试用例通过率"
+      - "输出质量"

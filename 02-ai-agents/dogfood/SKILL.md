@@ -10,14 +10,20 @@ metadata:
 
 # Dogfood: Systematic Web Application QA Testing
 
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
 ## Overview
 
 This skill guides you through systematic exploratory QA testing of web applications using the browser toolset. You will navigate the application, interact with elements, capture evidence of issues, and produce a structured bug report.
+
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
 
 ## Prerequisites
 
 - Browser toolset must be available (`browser_navigate`, `browser_snapshot`, `browser_click`, `browser_type`, `browser_vision`, `browser_console`, `browser_scroll`, `browser_back`, `browser_press`)
 - A target URL and testing scope from the user
+
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
 
 ## Inputs
 
@@ -26,11 +32,15 @@ The user provides:
 2. **Scope** — what areas/features to focus on (or "full site" for comprehensive testing)
 3. **Output directory** (optional) — where to save screenshots and the report (default: `./dogfood-output`)
 
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
 ## Workflow
 
 Follow this 5-phase systematic workflow:
 
-### Phase 1: Plan
+#⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
+## Phase 1: Plan
 
 1. Create the output directory structure:
    ```
@@ -46,7 +56,9 @@ Follow this 5-phase systematic workflow:
    - Forms and interactive elements
    - Edge cases (empty states, error pages, 404s)
 
-### Phase 2: Explore
+#⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
+## Phase 2: Explore
 
 For each page or feature in your plan:
 
@@ -85,7 +97,9 @@ For each page or feature in your plan:
    - Visual changes: `browser_vision(question="What changed after the interaction?")`
    - Expected vs actual behavior
 
-### Phase 3: Collect Evidence
+#⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
+## Phase 3: Collect Evidence
 
 For every issue found:
 
@@ -107,7 +121,9 @@ For every issue found:
    - Severity: Critical / High / Medium / Low
    - Category: Functional / Visual / Accessibility / Console / UX / Content
 
-### Phase 4: Categorize
+#⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
+## Phase 4: Categorize
 
 1. Review all collected issues.
 2. De-duplicate — merge issues that are the same bug manifesting in different places.
@@ -115,7 +131,9 @@ For every issue found:
 4. Sort by severity (Critical first, then High, Medium, Low).
 5. Count issues by severity and category for the executive summary.
 
-### Phase 5: Report
+#⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
+## Phase 5: Report
 
 Generate the final report using the template at `templates/dogfood-report-template.md`.
 
@@ -135,6 +153,8 @@ The report must include:
 
 Save the report to `{output_dir}/report.md`.
 
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
+
 ## Tools Reference
 
 | Tool | Purpose |
@@ -148,6 +168,8 @@ Save the report to `{output_dir}/report.md`.
 | `browser_press` | Press a keyboard key |
 | `browser_vision` | Screenshot + AI analysis; use `annotate=true` for element labels |
 | `browser_console` | Get JS console output and errors |
+
+⚠️ **重要提示**：在执行以下操作前，请确保已备份重要数据，并确认操作无误。
 
 ## Tips
 

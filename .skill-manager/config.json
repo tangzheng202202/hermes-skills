@@ -5,7 +5,7 @@
     "01-coding-dev": {
       "name": "Coding & Development",
       "description": "代码开发相关 skills",
-      "skills": ["github", "devops", "software-development", "code-review", "github-python-install"]
+      "skills": ["github", "devops", "software-development", "code-review", "github-python-install", "skill-workflow-integration"]
     },
     "02-ai-agents": {
       "name": "AI Agents & Automation", 
